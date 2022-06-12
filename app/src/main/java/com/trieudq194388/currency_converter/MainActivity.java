@@ -150,9 +150,11 @@ public class MainActivity extends AppCompatActivity {
             src.setText(number);
         }
         else if(previousClick.equals(DOT_BUTTON)){
-            int cNum = (int) Double.parseDouble(tmp);
-            src.setText(doubleToStringWithComma(cNum + "." + number));
-
+            if(!number.equals("0")){
+                double cNum = Double.parseDouble(tmp);
+                cNum += Double.parseDouble(number)/10;
+                src.setText(doubleToStringWithComma(cNum+""));
+            }
         }else src.setText(doubleToStringWithComma(tmp + number));
 
         double cNum = Double.parseDouble(getInputValue(src));
